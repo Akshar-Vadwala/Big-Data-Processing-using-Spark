@@ -38,15 +38,19 @@ Both tasks highlight distributed computation, natural language processing, and l
 ---
 
 ###  Task 2 — Movie Plot Search Engine (TF-IDF + Cosine Similarity)
-- Downloads and extracts the **CMU Movie Summaries** dataset.  
-- Removes stopwords and tokenizes text using **NLTK**.  
-- Computes **TF**, **IDF**, and **TF-IDF** from scratch using Spark RDDs.  
-- Supports:
-  - **Single-term queries** — ranks movies using TF-IDF scores.  
-  - **Multi-term queries** — computes cosine similarity between query and plot vectors.  
-- Returns the **Top 10 most relevant movie titles** for each query.
 
----
+This task builds a **mini search engine** using the CMU Movie Summary Corpus.  
+It demonstrates how to compute **TF**, **IDF**, and **TF-IDF** manually using Spark RDDs for large-scale text retrieval.
+
+####  Part A — Single-Term Query Search
+- Calculates **TF-IDF scores** for every word in each movie plot.  
+- Accepts a **single-term search query** (e.g., “romantic”, “funny”, “adventure”).  
+- Ranks all movies by their TF-IDF value for that word.  
+- Displays the **Top 10 most relevant movies** for the query.  
+
+####  Sample Output
+![Task 2A Output](Task%202_a.png)
+
 
 ##  Usage
 
@@ -54,4 +58,9 @@ Both tasks highlight distributed computation, natural language processing, and l
 Run:
 ```bash
 spark-submit wordcount_entities.py
+
+### 2.A Single Term Query Search
+Run:
+```bash
+spark-submit tfidf_single_query.py
 
