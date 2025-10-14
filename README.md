@@ -1,6 +1,6 @@
 # Big Data Text Processing using PySpark
 
-**License:** MIT  
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)  
 
 ##  Description
 This project demonstrates large-scale text processing and information retrieval using **PySpark**.  
@@ -40,7 +40,7 @@ Both tasks highlight distributed computation, natural language processing, and l
 ###  Task 2 — Movie Plot Search Engine (TF-IDF + Cosine Similarity)
 
 This task builds a **mini search engine** using the CMU Movie Summary Corpus.  
-It demonstrates how to compute **TF**, **IDF**, and **TF-IDF** manually using Spark RDDs for large-scale text retrieval.
+It demonstrates how to compute **TF**, **IDF**, and **TF-IDF** manually using Spark RDDs for large-scale text retrieval. The single and multiterm search queries are written in search.json file.
 
 ####  Part A — Single-Term Query Search
 - Calculates **TF-IDF scores** for every word in each movie plot.  
@@ -51,16 +51,28 @@ It demonstrates how to compute **TF**, **IDF**, and **TF-IDF** manually using Sp
 ####  Sample Output
 ![Task 2A Output](Task%202_a.png)
 
+####  Part B — Multi-Term Query Search  
+- Accepts **multi-word queries** (e.g., “funny action movie”, “space adventure mission”).  
+- Computes **TF**, **IDF**, and **TF-IDF** for both the query and all movie plots.  
+- Uses **Cosine Similarity** to compare the query vector with each movie vector.  
+- Returns the **Top 10 most similar movie titles** ranked by cosine similarity score.  
+- Demonstrates distributed vector computation and query ranking using Spark RDDs.
+
+####  Sample Output
+![Task 2B Output](Task%202_b.png)
 
 ##  Usage
 
-###  1. Named Entity WordCount
 Run:
 ```bash
+###  1. Named Entity WordCount
+
 spark-submit wordcount_entities.py
 
 ### 2.A Single Term Query Search
-Run:
-```bash
+
 spark-submit tfidf_single_query.py
 
+### 2.B Multi Term Query Search
+
+spark-submit tfidf_cosine_multiterm_query.py
